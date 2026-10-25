@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="118" height="26" viewBox="0 0 118 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Tab behind &#194;&#183; Ornament">
+<g id="Vector">
+<path d="M0 26C7 26 5 3 16 3H102C113 3 111 26 118 26H0Z" fill="#EFE5D5"/>
+<mask id="stroke0_0_105" fill="white">
+<path d="M0 26C7 26 5 3 16 3H102C113 3 111 26 118 26H0Z"/>
+</mask>
+<path d="M0 26C7 26 5 3 16 3H102C113 3 111 26 118 26H0Z" stroke-width="1.4" stroke="#DCCDB5" mask="url(#stroke0_0_105)"/>
+</g>
+</g>
+</svg>

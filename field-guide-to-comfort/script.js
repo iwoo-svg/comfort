@@ -27,7 +27,7 @@
 
     // Figma note: going from 1 → 2 (opening Lighting), the lights switch on.
     if (view === "lighting") {
-      setLight(1, { instant: true });   // start on warm lamp light
+      snapTo(1);                        // start on warm lamp light
       room.classList.remove("is-powering");
       void room.offsetWidth;            // restart the animation
       room.classList.add("is-powering");
@@ -63,15 +63,22 @@
   });
 
   /* ---------- Lighting: drag the dot along the strip ---------- */
-  // Stops along the strip, top (0) → bottom (1).
-  // Only "Warm lamp light" is in the Figma design; the other three are placeholders.
+  // Light gradient from Figma, top (0) → bottom (1) of the strip.
+  // Names and place counts are placeholders except "Warm lamp light" (8 places).
+  // lamp: true → the lamp-lit part of the strip, where the places get labelled on the room.
   const STOPS = [
-    { t: 0.00, name: "Cool skylight",   hex: "#C9D1D8", places: 3 },
-    { t: 0.35, name: "Overcast window", hex: "#CDD3C2", places: 4 },
-    { t: 0.70, name: "Late sun",        hex: "#DDC7A2", places: 5 },
-    { t: 1.00, name: "Warm lamp light", hex: "#E9C98F", places: 8 },
+    { t: 0.00, name: "Morning mist",    hex: "#E6EDE9", places: 2 },
+    { t: 0.17, name: "Sage skylight",   hex: "#B2CDBF", places: 3 },
+    { t: 0.31, name: "Overcast stone",  hex: "#A1A691", places: 4 },
+    { t: 0.46, name: "Linen daylight",  hex: "#F3D5BA", places: 5 },
+    { t: 0.63, name: "Late sun",        hex: "#FBD096", places: 6 },
+    { t: 0.80, name: "Brass lamp",      hex: "#DEAC5E", places: 7, lamp: true },
+    { t: 1.00, name: "Warm lamp light", hex: "#F1B962", places: 8, lamp: true },
   ];
-  const STRIP_TOP = 210, PICK_MIN = 24, PICK_RANGE = 504; // px in artboard units
+  const STRIP_TOP = 210, STRIP_H = 564, PICK_MIN = 24, PICK_RANGE = 504; // px in artboard units
+  // where the dot sits on the gradient (0–1), so the colour matches what is under it
+  const stripPos = (t) => (PICK_MIN + t * PICK_RANGE) / STRIP_H;
+  const isLamp = () => stripPos(lightT) >= 0.8;
 
   const strip = document.getElementById("lightStrip");
   const picker = document.getElementById("picker");
@@ -79,7 +86,7 @@
   const metaEl = document.getElementById("lightMeta");
   const labels = [...document.querySelectorAll("#lightLabels .anno")];
   const thumbs = [...document.querySelectorAll(".thumb")];
-  let lightT = 1;
+  let lightT = 1, lastLamp = true;
 
   const hexToRgb = (h) => h.match(/\w\w/g).map((x) => parseInt(x, 16));
   const rgbToHex = (rgb) => "#" + rgb.map((v) => Math.round(v).toString(16).padStart(2, "0")).join("").toUpperCase();
@@ -99,13 +106,14 @@
 
   function setLight(t, { instant = false } = {}) {
     lightT = Math.min(1, Math.max(0, t));
-    const hex = colorAt(lightT);
-    const stop = nearestStop(lightT);
+    const pos = stripPos(lightT);
+    const hex = colorAt(pos);
+    const stop = nearestStop(pos);
 
-    picker.style.top = `${STRIP_TOP + PICK_MIN + lightT * PICK_RANGE - 12}px`;
+    picker.style.transform = `translateY(${(lightT * PICK_RANGE).toFixed(2)}px)`;
     stage.style.setProperty("--lit", (0.25 + 0.75 * lightT).toFixed(3));
     stage.style.setProperty("--cool", (1 - lightT).toFixed(3));
-    stage.style.setProperty("--light", hex);
+    document.documentElement.style.setProperty("--light", hex); // on <html> so the page background can use it too
 
     nameEl.textContent = stop.name;
     metaEl.textContent = `Found in ${stop.places} places  ·  ${hex}`;
@@ -113,15 +121,39 @@
     strip.setAttribute("aria-valuetext", `${stop.name}, ${hex}`);
 
     // Places are labelled on the room only while the warm lamp light is picked.
-    if (!instant) labels.forEach((l) => l.classList.toggle("is-on", stop === STOPS[3]));
+    const lamp = isLamp();
+    if (!instant && lamp !== lastLamp) labels.forEach((l) => l.classList.toggle("is-on", lamp));
+    lastLamp = lamp;
   }
 
   function revealLabels() {
     labels.forEach((l) => l.classList.remove("is-on", "is-dim", "is-focus"));
     thumbs.forEach((b) => b.classList.remove("is-active"));
     labels.forEach((l, i) => setTimeout(() => {
-      if (stage.dataset.view === "lighting" && lightT > 0.85) l.classList.add("is-on");
+      if (stage.dataset.view === "lighting" && isLamp()) l.classList.add("is-on");
     }, 1900 + i * 140));
+  }
+
+  /* Smooth slider: the dot eases toward where you point (rAF), so it glides
+     instead of jumping, and grabbing the dot itself never makes it snap. */
+  const clamp01 = (v) => Math.min(1, Math.max(0, v));
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let target = 1, raf = null, grabOffset = 0;
+
+  function tick() {
+    const d = target - lightT;
+    if (Math.abs(d) < 0.0006 || reduceMotion) { setLight(target); raf = null; return; }
+    setLight(lightT + d * 0.3);
+    raf = requestAnimationFrame(tick);
+  }
+  function slideTo(t) {
+    target = clamp01(t);
+    if (!raf) raf = requestAnimationFrame(tick);
+  }
+  function snapTo(t) {                       // used when entering the view
+    cancelAnimationFrame(raf); raf = null;
+    target = clamp01(t);
+    setLight(target, { instant: true });
   }
 
   function tFromPointer(e) {
@@ -129,26 +161,36 @@
     return ((e.clientY - r.top) / scale - PICK_MIN) / PICK_RANGE;
   }
   strip.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
     strip.setPointerCapture(e.pointerId);
     stage.classList.add("is-dragging");
-    setLight(tFromPointer(e));
+    const t = tFromPointer(e);
+    // pressed on the dot → keep the grab point; pressed elsewhere → glide there
+    grabOffset = Math.abs(t - lightT) * PICK_RANGE < 18 ? lightT - t : 0;
+    slideTo(t + grabOffset);
   });
   strip.addEventListener("pointermove", (e) => {
-    if (strip.hasPointerCapture(e.pointerId)) setLight(tFromPointer(e));
+    if (strip.hasPointerCapture(e.pointerId)) slideTo(tFromPointer(e) + grabOffset);
   });
   const endDrag = () => stage.classList.remove("is-dragging");
   strip.addEventListener("pointerup", endDrag);
   strip.addEventListener("pointercancel", endDrag);
+  strip.addEventListener("lostpointercapture", endDrag);
+  // mouse wheel / trackpad over the strip
+  strip.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    slideTo(target + e.deltaY * 0.0012);
+  }, { passive: false });
   strip.addEventListener("keydown", (e) => {
-    const step = { ArrowUp: -0.05, ArrowDown: 0.05, PageUp: -0.2, PageDown: 0.2 }[e.key];
-    if (step) { e.preventDefault(); setLight(lightT + step); }
-    if (e.key === "Home") setLight(0);
-    if (e.key === "End") setLight(1);
+    const step = { ArrowUp: -0.04, ArrowDown: 0.04, PageUp: -0.2, PageDown: 0.2 }[e.key];
+    if (step) { e.preventDefault(); slideTo(target + step); }
+    if (e.key === "Home") { e.preventDefault(); slideTo(0); }
+    if (e.key === "End") { e.preventDefault(); slideTo(1); }
   });
 
   /* Hover / pick a place → focus its label on the room */
   function focusPlace(n) {
-    if (lightT <= 0.85) return;
+    if (!isLamp()) return;
     labels.forEach((l) => {
       const hit = l.dataset.place === String(n);
       l.classList.toggle("is-focus", hit);
@@ -162,7 +204,7 @@
     b.addEventListener("click", () => {
       pinned = pinned === b.dataset.place ? null : b.dataset.place;
       thumbs.forEach((x) => x.classList.toggle("is-active", x.dataset.place === pinned));
-      if (lightT <= 0.85) setLight(1); // jump back to the light these places share
+      if (!isLamp()) slideTo(1); // jump back to the light these places share
       focusPlace(pinned);
     });
   });

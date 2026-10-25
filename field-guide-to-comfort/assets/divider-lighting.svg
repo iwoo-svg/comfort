@@ -1,0 +1,34 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="440" height="350" viewBox="0 0 440 350" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Vector" filter="url(#filter0_dn_0_80)">
+<use xlink:href="#stroke0_0_80" fill="#ECE0D2"/>
+<mask id="stroke1_0_80" fill="white">
+<use xlink:href="#stroke0_0_80"/>
+</mask>
+<path d="M24 33H26C33 33 31 7 42 7H128C139 7 137 33 144 33H416C425.333 33 430 37.6667 430 47V323C430 332.333 425.333 337 416 337H24C14.6667 337 10 332.333 10 323V47C10 37.6667 14.6667 33 24 33Z" stroke-width="2" stroke="#DCCDB5" mask="url(#stroke1_0_80)"/>
+</g>
+<defs>
+<filter id="filter0_dn_0_80" x="0" y="0" width="440" height="350" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="3"/>
+<feGaussianBlur stdDeviation="5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.419608 0 0 0 0 0.305882 0 0 0 0 0.2 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_80"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.90909087657928467 0.90909087657928467" stitchTiles="stitch" numOctaves="3" result="noise" seed="0" />
+<feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
+<feComponentTransfer in="alphaNoise" result="coloredNoise1">
+<feFuncA type="discrete" tableValues="0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+</feComponentTransfer>
+<feComposite operator="in" in2="shape" in="coloredNoise1" result="noise1Clipped" />
+<feFlood flood-color="rgba(107, 78, 51, 0.12)" result="color1Flood" />
+<feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1" />
+<feMerge result="effect2_noise_0_80">
+<feMergeNode in="shape" />
+<feMergeNode in="color1" />
+</feMerge>
+<feBlend mode="normal" in="effect2_noise_0_80" in2="effect1_dropShadow_0_80" result="effect2_noise_0_80"/>
+</filter>
+<path id="stroke0_0_80" d="M24 33H26C33 33 31 7 42 7H128C139 7 137 33 144 33H416C425.333 33 430 37.6667 430 47V323C430 332.333 425.333 337 416 337H24C14.6667 337 10 332.333 10 323V47C10 37.6667 14.6667 33 24 33Z"/>
+</defs>
+</svg>
