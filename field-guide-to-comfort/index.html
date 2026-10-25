@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A Field Guide to Comfort · Providence Athenæum</title>
+
+  <!-- Urbanist, Inter, IBM Plex Mono: Google Fonts (no files needed) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Inter:wght@400;500&family=Urbanist:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <!-- Feroniapi: local file in /fonts (see style.css @font-face) -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="viewport" id="viewport">
+    <main class="stage" id="stage" data-view="home">
+
+      <!-- Quilt band (shared) -->
+      <div class="quilt" aria-hidden="true">
+        <i class="bleed" style="inset:-7.69% -0.28% -23.08% -0.28%"><img src="assets/quilt-band.svg" alt="" /></i>
+      </div>
+
+      <!-- ===== Library illustration (shared, moves between views) ===== -->
+      <div class="room" id="room" aria-hidden="true">
+        <img class="room-img room-base" src="assets/home-library.png" alt="" />
+        <img class="room-img room-lit" id="roomLit" src="assets/lit-library.png" alt="" />
+        <img class="room-img room-furn" src="assets/furniture-library.png" alt="" />
+      </div>
+
+      <!-- ================= VIEW 1 · HOME ================= -->
+      <section class="layer layer-home" aria-label="Home">
+        <p class="home-eyebrow">Providence Athenæum&nbsp;&nbsp;·&nbsp;&nbsp;est. 1836</p>
+        <h1 class="home-title">A Field Guide to Comfort</h1>
+
+        <nav class="pill-nav" aria-label="Main">
+          <a href="#" class="is-active" data-go="home">Explore</a>
+          <a href="#">About</a>
+          <a href="https://www.providenceathenaeum.org/" target="_blank" rel="noopener">Visit ↗</a>
+        </nav>
+
+        <h2 class="home-question">Why does this library<br />feel like home?</h2>
+        <p class="home-intro">Open a divider to find the quiet details<br />that make the Athenæum comforting.</p>
+
+        <div class="index-stack">
+          <button class="divider divider-lighting" data-go="lighting" style="top:0;height:330px">
+            <span class="divider-art" style="inset:-2.12% -2.38% -3.94% -2.38%"><img src="assets/divider-lighting.svg" alt="" /></span>
+            <span class="stitch"></span>
+            <span class="tab-dot" style="left:38px;top:10px"><img src="assets/dot-lighting.svg" alt="" /></span>
+            <span class="tab-label" style="left:52px;top:7px">I Lighting</span>
+            <span class="row-count" style="left:18px;top:40px">8 places</span>
+            <span class="row-desc" style="left:74px;top:39px">Lamps, skylight, late sun</span>
+            <span class="row-arrow">→</span>
+          </button>
+
+          <button class="divider" data-go="furniture" style="top:66px;height:264px">
+            <span class="divider-art" style="inset:-2.65% -2.38% -4.92% -2.38%"><img src="assets/divider-furniture.svg" alt="" /></span>
+            <span class="tab-dot" style="left:124px;top:11px"><img src="assets/dot-furniture.svg" alt="" /></span>
+            <span class="tab-label" style="left:137px;top:8px">II Furniture</span>
+            <span class="row-count" style="left:18px;top:40px">24 pieces</span>
+            <span class="row-desc" style="left:77px;top:39px">Chairs, tables, ladders</span>
+            <span class="row-arrow">→</span>
+          </button>
+
+          <button class="divider" data-go="texture" data-soon style="top:132px;height:198px">
+            <span class="divider-art" style="inset:-3.54% -2.38% -6.57% -2.38%"><img src="assets/divider-texture.svg" alt="" /></span>
+            <span class="tab-dot" style="left:218px;top:10px"><img src="assets/dot-texture.svg" alt="" /></span>
+            <span class="tab-label" style="left:232px;top:7px">III Texture</span>
+            <span class="row-count" style="left:18px;top:40px">22 surfaces</span>
+            <span class="row-desc" style="left:93px;top:39px">Oak, leather, paper</span>
+            <span class="row-arrow">→</span>
+          </button>
+
+          <button class="divider" data-go="ornament" data-soon style="top:198px;height:132px">
+            <span class="divider-art" style="inset:-5.3% -2.38% -9.85% -2.38%"><img src="assets/divider-ornament.svg" alt="" /></span>
+            <span class="tab-dot" style="left:300px;top:10px"><img src="assets/dot-ornament.svg" alt="" /></span>
+            <span class="tab-label" style="left:313px;top:7px">IV Ornament</span>
+            <span class="row-count" style="left:18px;top:40px">19 details</span>
+            <span class="row-desc" style="left:80px;top:39px">Busts, carvings, brass</span>
+            <span class="row-arrow">→</span>
+          </button>
+
+          <p class="stack-note">Each divider is one reason the library feels comforting.</p>
+        </div>
+
+        <p class="home-status">
+          <img src="assets/home-status-dot.svg" alt="" />
+          108 objects&nbsp;&nbsp;·&nbsp;&nbsp;4 dividers
+        </p>
+      </section>
+
+      <!-- ================= VIEW 2 · LIGHTING ================= -->
+      <section class="layer layer-panel layer-lighting" aria-label="Lighting">
+        <p class="panel-title">A Field Guide to Comfort</p>
+
+        <div class="panel-group">
+          <img class="tab-behind" src="assets/tab-behind.svg" alt="" style="left:456px;top:94px" />
+          <img class="tab-behind" src="assets/tab-behind.svg" alt="" style="left:328px;top:94px" />
+          <img class="tab-behind" src="assets/tab-behind.svg" alt="" style="left:200px;top:94px" />
+          <span class="panel-art"><i class="bleed" style="inset:-0.96% -1.79% -1.78% -1.79%"><img src="assets/panel.svg" alt="" /></i></span>
+
+          <!-- divider tabs -->
+          <button class="ptab is-current" style="left:94px;top:101px" data-go="lighting"><img src="assets/l2-tabdot1.svg" alt="" />I&nbsp;&nbsp;Lighting</button>
+          <button class="ptab" style="left:212.5px;top:103px" data-go="furniture"><img src="assets/l2-tabdot2.svg" alt="" />II&nbsp;&nbsp;Furniture</button>
+          <button class="ptab" style="left:348px;top:103px" data-go="texture" data-soon><img src="assets/l2-tabdot3.svg" alt="" />III&nbsp;&nbsp;Texture</button>
+          <button class="ptab" style="left:470px;top:103px" data-go="ornament" data-soon><img src="assets/l2-tabdot4.svg" alt="" />IV&nbsp;&nbsp;Ornament</button>
+
+          <button class="back-btn" style="left:479px;top:143px" data-go="home">←&nbsp;&nbsp;Back to home</button>
+
+          <p class="panel-eyebrow" style="left:83px;top:155px">I · Lighting</p>
+          <h2 class="lighting-heading">Pick a light from the library</h2>
+
+          <!-- Light strip + draggable picker -->
+          <div class="light-strip" id="lightStrip" role="slider" tabindex="0"
+               aria-label="Light colour" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+            <img src="assets/light-strip.png" alt="" />
+          </div>
+          <span class="picker" id="picker" aria-hidden="true">
+            <i class="bleed" style="inset:-29.17% -41.67% -54.17% -41.67%"><img src="assets/picker.svg" alt="" /></i>
+          </span>
+
+          <!-- Selected light -->
+          <span class="swatch" id="swatch"></span>
+          <div class="selected-light">
+            <p class="selected-name" id="lightName">Warm lamp light</p>
+            <p class="selected-meta" id="lightMeta">Found in 8 places&nbsp;&nbsp;·&nbsp;&nbsp;#E9C98F</p>
+          </div>
+
+          <!-- 6 places (one sprite image) -->
+          <ul class="thumbs" id="thumbs">
+            <li><button class="thumb" data-place="1"><span class="thumb-img"><img src="assets/light-thumbs.png" alt="" style="left:0" /></span><span class="cap"><b>1</b>Reading lamp</span></button></li>
+            <li><button class="thumb" data-place="2"><span class="thumb-img"><img src="assets/light-thumbs.png" alt="" style="left:-106.77%" /></span><span class="cap"><b>2</b>Card catalogue</span></button></li>
+            <li><button class="thumb" data-place="3"><span class="thumb-img"><img src="assets/light-thumbs.png" alt="" style="left:-213.55%" /></span><span class="cap"><b>3</b>Desk lamp</span></button></li>
+            <li><button class="thumb" data-place="4"><span class="thumb-img"><img src="assets/light-thumbs.png" alt="" style="left:-320.32%" /></span><span class="cap"><b>4</b>Gallery sconce</span></button></li>
+            <li><button class="thumb" data-place="5"><span class="thumb-img"><img src="assets/light-thumbs.png" alt="" style="left:-427.1%" /></span><span class="cap"><b>5</b>Ceiling light</span></button></li>
+            <li><button class="thumb" data-place="6"><span class="thumb-img"><img src="assets/light-thumbs.png" alt="" style="left:-533.87%" /></span><span class="cap"><b>6</b>Stair lamp</span></button></li>
+          </ul>
+
+          <p class="lighting-hint">Drag the dot to change the light. The room follows, and the places with this light are labeled.</p>
+        </div>
+
+        <!-- Annotations on the room -->
+        <div class="annotations" id="lightLabels">
+          <div class="anno" data-place="1">
+            <img class="leader" src="assets/l2-leader1.svg" alt="" style="left:801px;top:356px;width:66px;height:129px" />
+            <span class="tag" style="left:670px;top:340px;width:128px;height:33px"><b>1</b>Reading lamp</span>
+            <span class="point" style="left:860px;top:478px;width:11px;height:11px"><i class="bleed" style="inset:-27.27% -36.36% -45.45% -36.36%"><img src="assets/l2-point.svg" alt="" /></i></span>
+          </div>
+          <div class="anno" data-place="2">
+            <img class="leader" src="assets/l2-leader2.svg" alt="" style="left:1010px;top:282px;width:199px;height:161px" />
+            <span class="tag" style="left:1208px;top:266px;width:136px;height:34px"><b>2</b>Card catalogue</span>
+            <span class="point" style="left:1006px;top:436px;width:11px;height:11px"><i class="bleed" style="inset:-27.27% -36.36% -45.45% -36.36%"><img src="assets/l2-point.svg" alt="" /></i></span>
+          </div>
+          <div class="anno" data-place="3">
+            <img class="leader" src="assets/l2-leader3.svg" alt="" style="left:1084px;top:377px;width:125px;height:98px" />
+            <span class="tag" style="left:1208px;top:362px;width:110px;height:33px"><b>3</b>Desk lamp</span>
+            <span class="point" style="left:1080px;top:469px;width:11px;height:10px"><i class="bleed" style="inset:-30% -36.36% -50% -36.36%"><img src="assets/l2-point3.svg" alt="" /></i></span>
+          </div>
+          <div class="anno" data-place="4">
+            <img class="leader" src="assets/l2-leader4.svg" alt="" style="left:1184px;top:444px;width:25px;height:34px" />
+            <span class="tag" style="left:1208px;top:428px;width:132px;height:34px"><b>4</b>Gallery sconce</span>
+            <span class="point" style="left:1180px;top:471px;width:10px;height:11px"><i class="bleed" style="inset:-27.27% -40% -45.45% -40%"><img src="assets/l2-point4.svg" alt="" /></i></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= VIEW 3 · FURNITURE ================= -->
+      <section class="layer layer-panel layer-furniture" aria-label="Furniture">
+        <p class="panel-title">A Field Guide to Comfort</p>
+
+        <div class="panel-group">
+          <img class="tab-behind" src="assets/tab-behind-3.svg" alt="" style="left:456px;top:93px" />
+          <img class="tab-behind" src="assets/tab-behind-3.svg" alt="" style="left:328px;top:93px" />
+          <img class="tab-behind" src="assets/tab-behind-3.svg" alt="" style="left:72px;top:93px" />
+          <span class="panel-art"><i class="bleed" style="inset:-0.96% -1.79% -1.78% -1.79%"><img src="assets/panel-3.svg" alt="" /></i></span>
+
+          <button class="ptab" style="left:96px;top:101px" data-go="lighting"><img src="assets/l3-tabdot1.svg" alt="" />I Lighting</button>
+          <button class="ptab is-current" style="left:219px;top:100px" data-go="furniture"><img src="assets/l3-tabdot2.svg" alt="" />II Furniture</button>
+          <button class="ptab" style="left:350px;top:102px" data-go="texture" data-soon><img src="assets/l3-tabdot3.svg" alt="" />III Texture</button>
+          <button class="ptab" style="left:471px;top:102px" data-go="ornament" data-soon><img src="assets/l3-tabdot4.svg" alt="" />IV Ornament</button>
+
+          <button class="back-btn" style="left:486px;top:143px" data-go="home">←&nbsp;&nbsp;Back to home</button>
+
+          <p class="panel-eyebrow" style="left:72px;top:172px">II · Furniture&nbsp;&nbsp;·&nbsp;&nbsp;No. 014</p>
+          <h2 class="item-title">Wooden chair</h2>
+
+          <div class="photo">
+            <span class="photo-crop"><img src="assets/chair-photo.png" alt="A wooden Windsor chair beside a reading table" /></span>
+          </div>
+          <span class="marker" data-mark="1" style="left:247px;top:252px">1</span>
+          <span class="marker" data-mark="2" style="left:310px;top:354px">2</span>
+          <span class="marker" data-mark="3" style="left:286px;top:435px">3</span>
+
+          <ol class="traits">
+            <li data-mark="1"><b>1</b><span>Round back that wraps around you</span><em>Curve</em></li>
+            <li data-mark="2"><b>2</b><span>Warm wood, like the floor and tables</span><em>Material</em></li>
+            <li data-mark="3"><b>3</b><span>Scratches from years of use</span><em>Trace</em></li>
+          </ol>
+
+          <p class="panel-eyebrow" style="left:72px;top:658px">Why it feels comforting?</p>
+          <p class="why-text">The bent back curves around your shoulders, and the seat dips to fit your body. Its honey-colored wood matches the floor and tables around it, and the scratches on the seat show it has been sat in for years, so it feels familiar, not new.</p>
+
+          <div class="pager">
+            <button class="pager-btn" aria-label="Previous piece">←&nbsp;&nbsp;No. 013</button>
+            <span>1 of 24 pieces</span>
+            <button class="pager-btn" aria-label="Next piece">No. 015&nbsp;&nbsp;→</button>
+          </div>
+        </div>
+
+        <div class="annotations">
+          <div class="anno is-on">
+            <img class="leader" src="assets/l3-leader.svg" alt="" style="left:915px;top:654px;width:78px;height:39px" />
+            <span class="tag tag-dark" style="left:747px;top:638px;width:168px;height:35px"><b>1</b>Wooden chair · 014</span>
+            <span class="point" style="left:986px;top:687px;width:11px;height:11px"><i class="bleed" style="inset:-27.27% -36.36% -45.45% -36.36%"><img src="assets/l3-point.svg" alt="" /></i></span>
+          </div>
+        </div>
+      </section>
+
+      <p class="toast" id="toast" role="status" aria-live="polite"></p>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+@echo off
+REM Downloads the Figma images into .\assets  (Figma links expire ~1 Nov 2026)
+cd /d "%~dp0"
+if not exist assets mkdir assets
+if not exist fonts mkdir fonts
+curl -fsSL -o "assets\home-library.png" "https://www.figma.com/api/mcp/asset/00c63279-e4cf-42e8-86f2-1bae717849a2.png" && echo ok  home-library.png
+curl -fsSL -o "assets\home-status-dot.svg" "https://www.figma.com/api/mcp/asset/b7756417-bf26-40ad-a400-124e78b632bb.svg" && echo ok  home-status-dot.svg
+curl -fsSL -o "assets\divider-lighting.svg" "https://www.figma.com/api/mcp/asset/18d79151-2bbe-43a9-b009-72a38ec8fc81.svg" && echo ok  divider-lighting.svg
+curl -fsSL -o "assets\dot-lighting.svg" "https://www.figma.com/api/mcp/asset/bec94823-47ec-4c2c-91ba-1f63d323f4ed.svg" && echo ok  dot-lighting.svg
+curl -fsSL -o "assets\divider-furniture.svg" "https://www.figma.com/api/mcp/asset/4eee2f03-dd70-408c-b7c0-d0e3e2e1254b.svg" && echo ok  divider-furniture.svg
+curl -fsSL -o "assets\dot-furniture.svg" "https://www.figma.com/api/mcp/asset/3f5884e7-3815-4b7e-96d0-54606ae16274.svg" && echo ok  dot-furniture.svg
+curl -fsSL -o "assets\divider-texture.svg" "https://www.figma.com/api/mcp/asset/358d2ec1-d12f-4e7b-a1b3-ac33e9708814.svg" && echo ok  divider-texture.svg
+curl -fsSL -o "assets\dot-texture.svg" "https://www.figma.com/api/mcp/asset/8e380a64-b6d0-4333-a8d8-81bc95c23ad2.svg" && echo ok  dot-texture.svg
+curl -fsSL -o "assets\divider-ornament.svg" "https://www.figma.com/api/mcp/asset/190d608a-f909-4bb9-953d-b417cd9be84d.svg" && echo ok  divider-ornament.svg
+curl -fsSL -o "assets\dot-ornament.svg" "https://www.figma.com/api/mcp/asset/c41525ec-d788-4942-8ff8-99e6b6da84c1.svg" && echo ok  dot-ornament.svg
+curl -fsSL -o "assets\quilt-band.svg" "https://www.figma.com/api/mcp/asset/3bcb62cf-a3e4-4bda-87e8-8fc82c93ffd3.svg" && echo ok  quilt-band.svg
+curl -fsSL -o "assets\light-strip.png" "https://www.figma.com/api/mcp/asset/c226bf6a-4e4d-4329-87db-322def7e5039.png" && echo ok  light-strip.png
+curl -fsSL -o "assets\light-thumbs.png" "https://www.figma.com/api/mcp/asset/cbac5f93-1927-41ad-a914-20ef5b05fa69.png" && echo ok  light-thumbs.png
+curl -fsSL -o "assets\lit-library.png" "https://www.figma.com/api/mcp/asset/f8953700-081a-4806-a504-3db44381e621.png" && echo ok  lit-library.png
+curl -fsSL -o "assets\tab-behind.svg" "https://www.figma.com/api/mcp/asset/a040814c-4cbc-458e-8d8d-1802e3b1f3da.svg" && echo ok  tab-behind.svg
+curl -fsSL -o "assets\panel.svg" "https://www.figma.com/api/mcp/asset/bd988b42-3131-4d84-87cb-2f6c98ee564d.svg" && echo ok  panel.svg
+curl -fsSL -o "assets\picker.svg" "https://www.figma.com/api/mcp/asset/49216017-2256-463a-9fa8-1b5d3388ff4a.svg" && echo ok  picker.svg
+curl -fsSL -o "assets\l2-leader1.svg" "https://www.figma.com/api/mcp/asset/f5fa2c49-ed7c-4b6e-bd5d-3886f2073d89.svg" && echo ok  l2-leader1.svg
+curl -fsSL -o "assets\l2-point.svg" "https://www.figma.com/api/mcp/asset/cf9ef4f5-ec91-4fcf-b50c-ee3b28e3bab0.svg" && echo ok  l2-point.svg
+curl -fsSL -o "assets\l2-leader2.svg" "https://www.figma.com/api/mcp/asset/0503dce5-220b-4505-b06a-da766cce4dfa.svg" && echo ok  l2-leader2.svg
+curl -fsSL -o "assets\l2-leader3.svg" "https://www.figma.com/api/mcp/asset/a563c40d-a09d-43f1-a1b1-ea17c92f9b5f.svg" && echo ok  l2-leader3.svg
+curl -fsSL -o "assets\l2-point3.svg" "https://www.figma.com/api/mcp/asset/3bf04361-5f29-4056-bda1-443efc705612.svg" && echo ok  l2-point3.svg
+curl -fsSL -o "assets\l2-leader4.svg" "https://www.figma.com/api/mcp/asset/691b6469-cba9-4fea-a10e-98ebde0170e3.svg" && echo ok  l2-leader4.svg
+curl -fsSL -o "assets\l2-point4.svg" "https://www.figma.com/api/mcp/asset/7baf34a0-9175-40e5-9e47-0d4944455fd9.svg" && echo ok  l2-point4.svg
+curl -fsSL -o "assets\l2-tabdot1.svg" "https://www.figma.com/api/mcp/asset/62ee5794-f903-4e96-8d40-e7df917a37ac.svg" && echo ok  l2-tabdot1.svg
+curl -fsSL -o "assets\l2-tabdot2.svg" "https://www.figma.com/api/mcp/asset/c8adb15f-8f2f-403c-abff-40c61e874302.svg" && echo ok  l2-tabdot2.svg
+curl -fsSL -o "assets\l2-tabdot3.svg" "https://www.figma.com/api/mcp/asset/e1bac5cb-b44d-43bf-83dc-beb8d5b30b1a.svg" && echo ok  l2-tabdot3.svg
+curl -fsSL -o "assets\l2-tabdot4.svg" "https://www.figma.com/api/mcp/asset/d3b29077-ee8c-4e45-8648-758af36dce3b.svg" && echo ok  l2-tabdot4.svg
+curl -fsSL -o "assets\chair-photo.png" "https://www.figma.com/api/mcp/asset/d9890755-869e-4b5e-b023-350efe0b28b1.png" && echo ok  chair-photo.png
+curl -fsSL -o "assets\furniture-library.png" "https://www.figma.com/api/mcp/asset/01951f8a-fada-466c-bf42-9ad9f76ced46.png" && echo ok  furniture-library.png
+curl -fsSL -o "assets\tab-behind-3.svg" "https://www.figma.com/api/mcp/asset/c8849602-4df1-4ee7-9e31-460dc814c0f6.svg" && echo ok  tab-behind-3.svg
+curl -fsSL -o "assets\panel-3.svg" "https://www.figma.com/api/mcp/asset/079dfbf6-ff70-4f1b-85a0-a969e5d67c2b.svg" && echo ok  panel-3.svg
+curl -fsSL -o "assets\l3-leader.svg" "https://www.figma.com/api/mcp/asset/dfc6afa0-e28e-4529-81f7-18306a403f60.svg" && echo ok  l3-leader.svg
+curl -fsSL -o "assets\l3-point.svg" "https://www.figma.com/api/mcp/asset/72423803-17b9-414d-9866-f8bcc5921928.svg" && echo ok  l3-point.svg
+curl -fsSL -o "assets\l3-tabdot1.svg" "https://www.figma.com/api/mcp/asset/e4d58bc7-4bab-4d2e-8c03-f61ece324484.svg" && echo ok  l3-tabdot1.svg
+curl -fsSL -o "assets\l3-tabdot2.svg" "https://www.figma.com/api/mcp/asset/c0f444c5-3804-4099-a772-8537502acf27.svg" && echo ok  l3-tabdot2.svg
+curl -fsSL -o "assets\l3-tabdot3.svg" "https://www.figma.com/api/mcp/asset/1c8958ee-54e7-420a-ab08-64b98ef8587a.svg" && echo ok  l3-tabdot3.svg
+curl -fsSL -o "assets\l3-tabdot4.svg" "https://www.figma.com/api/mcp/asset/f58123ca-6996-4cc9-bb5a-0e7ebe672515.svg" && echo ok  l3-tabdot4.svg
+echo Done.
+pause
